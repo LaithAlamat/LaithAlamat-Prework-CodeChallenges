@@ -6,8 +6,8 @@ namespace DSA_Practice
     {
         static void Main(string[] args)
         {
-            int[] arr = { 3, 4, 3, 3, 1 };
-            Console.WriteLine("arrayMaxResult Answer is: " + arrayMaxResult(arr));
+            int[] numbers = new int[5];
+            Console.WriteLine("arrayMaxResult Answer is: " + arrayMaxResult(numbers));
             Console.WriteLine("Result for LeapYearCalculator : " + LeapYearCalculator());
             int[] sequence = { 1, 2, 3 };
             Console.WriteLine("Result for perfectSequence: " + perfectSequence(sequence));
@@ -19,9 +19,10 @@ namespace DSA_Practice
 
         static int arrayMaxResult(int[] arr)
         {
-            printArray(arr);
+            Console.WriteLine("Please enter five numbers from 1-10");
+            getArray(arr);
             int count = 0;
-            Console.WriteLine("Please sellect a number");
+            Console.WriteLine("Please select a number");
             int number = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < arr.Length; i++)
@@ -33,6 +34,21 @@ namespace DSA_Practice
             }
             int result = number * count;
             return result;
+        }
+
+        static void getArray(int[] arr)
+        {
+           
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = Convert.ToInt32(Console.ReadLine());
+                if (arr[i] < 1 || arr[i] > 10)
+                {
+                    Console.WriteLine("this is not number. enter valid num");
+                    arr[i] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+            printArray(arr);
         }
 
 
